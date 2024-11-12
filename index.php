@@ -50,7 +50,7 @@ include("functions/functions.php");
 
                     ?>
                 </a>
-                <a id="pr" href="#"> Shopping Cart Total Price: ₹ <?php totalPrice(); ?>, Total Items <?php item(); ?></a>
+                <a id="pr" href="#"> Shopping Cart Total Price: <i class="fa fa-inr"></i> <?php totalPrice(); ?>, Total Items <?php item(); ?></a>
             </div>
 
         </div>
@@ -120,6 +120,7 @@ include("functions/functions.php");
                     <h1 class="heading"> <span>BEST OFFERS FOR YOU</span> </h1>
 
                     <div class="slideshow-container">
+                        
                         <!-- dynamic hairstyle images section starts  -->
 
                         <?php
@@ -131,13 +132,13 @@ include("functions/functions.php");
                             $slider_url = $row['slider_url'];
 
                             echo "<div class='mySlides fade'>
-  <a href='$slider_url'><img src='admin_area/slider_images/$slider_image'  width='1400' height='400'></a>
-
-</div>
-  ";
+                                    <a href='$slider_url'>
+                                        <img src='admin_area/slider_images/$slider_image'  width='1400' height='400'>
+                                    </a>
+                                </div>";
                         }
-
                         ?>
+
                         <?php
                         $get_slider = "select * from slider LIMIT 1,10";
                         $run_slider = mysqli_query($con, $get_slider);
@@ -146,14 +147,12 @@ include("functions/functions.php");
                             $slider_image = $row['slider_image'];
                             $slider_url = $row['slider_url'];
                             echo "<div class='mySlides fade '>
-  <a href='$slider_url'><img src='admin_area/slider_images/$slider_image' width='1400' height='400'></a>
-        </div>";
+                                    <a href='$slider_url'>
+                                        <img src='admin_area/slider_images/$slider_image' width='1400' height='400'>
+                                    </a>
+                                </div>";
                         }
-
                         ?>
-
-
-                        <!-- dynamic hairstyle images section End  -->
 
                         <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
                         <a class="next" onclick="plusSlides(1)">&#10095;</a>
@@ -170,15 +169,14 @@ include("functions/functions.php");
 
                 </section>
 
-
                 <!-- home section ends -->
-                <!-- new this week section start -->
+
                 <!-- hot start -->
 
                 <div class="hot">
                     <div class="container">
                         <h2>Latest this Week</h2>
-                        <div class=" col-sm-4">
+                        <div class="col-sm-4">
                             <div class="row">
                                 <?php
 
@@ -189,16 +187,10 @@ include("functions/functions.php");
                         </div>
                     </div>
                 </div>
-                <!-- dynamic latest this week images section End  -->
-
-
-
-                <!-- new this week section End -->
 
 
                 <!--saloon product section starts  -->
 
-                <!-- Trimer Start  -->
                 <section class="arrival" id="arrival">
 
                     <h1 class="heading"> <span>SALLON PRODUCTS</span> </h1>
@@ -219,7 +211,6 @@ include("functions/functions.php");
 
                             </div>
                         </div>
-                        <!-- Trimer End  -->
 
                         <div class="box">
                             <div class="image">
@@ -324,129 +315,11 @@ include("functions/functions.php");
                             </div>
                         </div>
 
-                        <div class="box">
-                            <div class="image">
-                                <a href="trimer.php?p_cat=30"> <img src="website/all/color.svg" alt=""></a>
-                            </div>
-                            <div class="info">
-                                <a href="trimer.php?p_cat=30">
-                                    <h3>Color</h3>
-                                </a>
-
-                            </div>
-                            <div class="overlay">
-
-                            </div>
-                        </div>
-
-                        <div class="box">
-                            <div class="image">
-                                <a href="trimer.php?p_cat=31"> <img src="website/all/scissor.svg" alt=""></a>
-                            </div>
-                            <div class="info">
-                                <a href="trimer.php?p_cat=31">
-                                    <h3>Scissor</h3>
-                                </a>
-
-                            </div>
-                            <div class="overlay">
-
-                            </div>
-                        </div>
-
-                        <div class="box">
-                            <div class="image">
-                                <a href="trimer.php?p_cat=32"> <img src="website/all/ustra.svg" alt=""></a>
-                            </div>
-                            <div class="info">
-                                <a href="trimer.php?p_cat=32">
-                                    <h3>classic shaver</h3>
-                                </a>
-
-                            </div>
-                            <div class="overlay">
-
-                            </div>
-                        </div>
-
-                        <div class="box">
-                            <div class="image">
-                                <a href="trimer.php?p_cat=33"> <img src="website/all/comb.svg" alt=""></a>
-                            </div>
-                            <div class="info">
-                                <a href="trimer.php?p_cat=33">
-                                    <h3>Comb</h3>
-                                </a>
-
-                            </div>
-                            <div class="overlay">
-
-                            </div>
-                        </div>
-
-                        <div class="box">
-                            <div class="image">
-                                <a href="trimer.php?p_cat=34"> <img src="website/all/towel.svg" alt=""></a>
-                            </div>
-                            <div class="info">
-                                <a href="trimer.php?p_cat=34">
-                                    <h3>Towel</h3>
-                                </a>
-
-                            </div>
-                            <div class="overlay">
-
-                            </div>
-                        </div>
-
-                        <div class="box">
-                            <div class="image">
-                                <a href="trimer.php?p_cat=35"> <img src="website/all/foam.jpg" alt="" width="200"></a>
-                            </div>
-                            <div class="info">
-                                <a href="trimer.php?p_cat=35">
-                                    <h3>Shaving Foam</h3>
-                                </a>
-
-                            </div>
-                            <div class="overlay">
-
-                            </div>
-                        </div>
-                        <div class="box">
-                            <div class="image">
-                                <a href="trimer.php?p_cat=36"> <img src="website/all/kit.jpg" alt="" width="200"></a>
-                            </div>
-                            <div class="info">
-                                <a href="trimer.php?p_cat=36">
-                                    <h3>Facial Kit</h3>
-                                </a>
-
-                            </div>
-                            <div class="overlay">
-
-                            </div>
-                        </div>
-
-                        <div class="box">
-                            <div class="image">
-                                <a href="trimer.php?p_cat=37"> <img src="website/all/powder.jpg" alt="" width="200"></a>
-                            </div>
-                            <div class="info">
-                                <a href="trimer.php?p_cat=37">
-                                    <h3>Powder</h3>
-                                </a>
-
-                            </div>
-                            <div class="overlay">
-
-                            </div>
-                        </div>
-
                     </div>
                 </section>
 
                 <!-- saloon products section ends -->
+
                 <!-- parlor products section starts -->
 
                 <section class="parlor" id="parlor">
@@ -469,7 +342,6 @@ include("functions/functions.php");
 
                             </div>
                         </div>
-                        <!-- Trimer End  -->
 
                         <div class="box">
                             <div class="image">
@@ -514,125 +386,12 @@ include("functions/functions.php");
                             </div>
                         </div>
 
-                        <div class="box">
-                            <div class="image">
-                                <a href="trimer.php?p_cat=42"> <img src="website/all/beauty.jpg" alt="" width="250"></a>
-                            </div>
-                            <div class="info">
-                                <a href="trimer.php?p_cat=42">
-                                    <h3>Beauty Care</h3>
-                                </a>
-
-                            </div>
-                            <div class="overlay">
-
-                            </div>
-                        </div>
-
-                        <div class="box">
-                            <div class="image">
-                                <a href="trimer.php?p_cat=43"> <img src="website/all/lacme.jpg" alt="" width="330"></a>
-                            </div>
-                            <div class="info">
-                                <a href="trimer.php?p_cat=43">
-                                    <h3>Lacme</h3>
-                                </a>
-
-                            </div>
-                            <div class="overlay">
-
-                            </div>
-                        </div>
-
-                        <div class="box">
-                            <div class="image">
-                                <a href="trimer.php?p_cat=44"> <img src="website/all/skin.jpg" alt="" width="330"></a>
-                            </div>
-                            <div class="info">
-                                <a href="trimer.php?p_cat=44">
-                                    <h3>Skin Care</h3>
-                                </a>
-
-                            </div>
-                            <div class="overlay">
-
-                            </div>
-                        </div>
-
-
                     </div>
                 </section>
                 <!-- parlor products section ends -->
-                <!-- garment products section start -->
-                <section class="garment" id="garment">
 
-                    <h1 class="heading"> <span>GARMENTS</span> </h1>
+                <!-- Daily use section start here -->
 
-                    <div class="box-container">
-
-                        <div class="box">
-                            <div class="image">
-                                <a href="trimer.php?p_cat=45"> <img src="website/all/inner.jpg" alt="" width="340"></a>
-                            </div>
-                            <div class="info">
-                                <a href="trimer.php?p_cat=45">
-                                    <h3>Inner Wear</h3>
-                                </a>
-
-                            </div>
-                            <div class="overlay">
-
-                            </div>
-                        </div>
-                        <!-- Trimer End  -->
-
-                        <div class="box">
-                            <div class="image">
-                                <a href="trimer.php?p_cat=46"> <img src="website/all/un.jpg" alt="" width="300"></a>
-                            </div>
-                            <div class="info">
-                                <a href="trimer.php?p_cat=46">
-                                    <h3>Underwear</h3>
-                                </a>
-
-                            </div>
-                            <div class="overlay">
-
-                            </div>
-                        </div>
-
-                        <div class="box">
-                            <div class="image">
-                                <a href="trimer.php?p_cat=47"> <img src="website/all/cap.jpg" alt="" width="200"></a>
-                            </div>
-                            <div class="info">
-                                <a href="trimer.php?p_cat=47">
-                                    <h3>CAP</h3>
-                                </a>
-
-                            </div>
-                            <div class="overlay">
-                            </div>
-                        </div>
-
-                        <div class="box">
-                            <div class="image">
-                                <a href="trimer.php?p_cat=48"><img src="website/all/han.jpg" alt="" width="200"></a>
-                            </div>
-                            <div class="info">
-                                <a href="trimer.php?p_cat=48">
-                                    <h3>Hankey</h3>
-                                </a>
-
-                            </div>
-                            <div class="overlay">
-                            </div>
-                        </div>
-
-
-                    </div>
-                </section>
-                <!--garment section ends-->
                 <section class="use" id="use">
 
                     <h1 class="heading"> <span>DAILY-USE</span> </h1>
@@ -653,7 +412,6 @@ include("functions/functions.php");
 
                             </div>
                         </div>
-                        <!-- Trimer End  -->
 
                         <div class="box">
                             <div class="image">
@@ -758,123 +516,15 @@ include("functions/functions.php");
                             </div>
                         </div>
 
-                        <div class="box">
-                            <div class="image">
-                                <a href="trimer.php?p_cat=57"> <img src="website/all/soap.jpg" alt="" width="250"></a>
-                            </div>
-                            <div class="info">
-                                <a href="trimer.php?p_cat=57">
-                                    <h3>Soap</h3>
-                                </a>
-
-                            </div>
-                            <div class="overlay">
-
-                            </div>
-                        </div>
-
-                        <div class="box">
-                            <div class="image">
-                                <a href="trimer.php?p_cat=58"> <img src="website/all/toth.jpg" alt="" width="250"></a>
-                            </div>
-                            <div class="info">
-                                <a href="trimer.php?p_cat=58">
-                                    <h3>Toothpaste</h3>
-                                </a>
-
-                            </div>
-                            <div class="overlay">
-
-                            </div>
-                        </div>
-
-                        <div class="box">
-                            <div class="image">
-                                <a href="trimer.php?p_cat=59"> <img src="website/all/hand.jpg" alt="" width="200"> </a>
-                            </div>
-                            <div class="info">
-                                <a href="trimer.php?p_cat=59">
-                                    <h3>Handwash</h3>
-                                </a>
-
-                            </div>
-                            <div class="overlay">
-
-                            </div>
-                        </div>
-
-                        <div class="box">
-                            <div class="image">
-                                <a href="trimer.php?p_cat=60"> <img src="website/all/shampoo.jpg" alt="" width="200"></a>
-                            </div>
-                            <div class="info">
-                                <a href="trimer.php?p_cat=60">
-                                    <h3>Shampoo</h3>
-                                </a>
-
-                            </div>
-                            <div class="overlay">
-
-                            </div>
-                        </div>
-
-                        <div class="box">
-                            <div class="image">
-                                <a href="trimer.php?p_cat=61"> <img src="website/all/oil.jpg" alt="" width="200"></a>
-                            </div>
-                            <div class="info">
-                                <a href="trimer.php?p_cat=61">
-                                    <h3>Hair Oil</h3>
-                                </a>
-
-                            </div>
-                            <div class="overlay">
-
-                            </div>
-                        </div>
-
-                        <div class="box">
-                            <div class="image">
-                                <a href="trimer.php?p_cat=62"> <img src="website/all/room.jpg" alt="" width="200"></a>
-                            </div>
-                            <div class="info">
-                                <a href="trimer.php?p_cat=62">
-                                    <h3>Room Fragrance</h3>
-                                </a>
-
-                            </div>
-                            <div class="overlay">
-
-                            </div>
-                        </div>
-
-                        <div class="box">
-                            <div class="image">
-                                <a href="trimer.php?p_cat=63"> <img src="website/all/hai.jpg" alt="" width="200"></a>
-                            </div>
-                            <div class="info">
-                                <a href="trimer.php?p_cat=63">
-                                    <h3>Hair Spray</h3>
-                                </a>
-
-                            </div>
-                            <div class="overlay">
-
-                            </div>
-                        </div>
-
                     </div>
                 </section>
 
-
-                <!-- gallery section ends -->
+                <!-- Daily use section ends here -->
 
                 <!-- deal section starts  -->
 
                 <section class="deal" id="deal">
-
                     <h1 class="heading"> <span> BEST DEALS </span> </h1>
-
 
                     <div class="icons-container">
 
@@ -888,8 +538,6 @@ include("functions/functions.php");
                             $box_desc = $row['box_desc'];
                             $box_icon = $row['box_icon'];
 
-
-
                         ?>
 
                             <div class="icons">
@@ -898,7 +546,6 @@ include("functions/functions.php");
                                 <p><?php echo $box_desc ?></p>
 
                             </div>
-
 
                         <?php } ?>
                     </div>
@@ -914,15 +561,9 @@ include("functions/functions.php");
                     <h1>Newsletter</h1>
                     <p>Get In Touch For Latest Discounts And Updates</p>
                     <form action="contactus.php" method="post">
-
-
                         <input type="text" placeholder="Enter Your Name"><br>
-
-
                         <input type="email" placeholder="Enter Your Email">
-
                         <textarea type="txt" placeholder="Enter Your Message"></textarea>
-
                         <input type="submit" class="btn">
                     </form>
 
@@ -932,12 +573,10 @@ include("functions/functions.php");
 
                 <!-- footer section starts  -->
 
-
-
-                <footer class="footer" id="footer">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-3 col-sm-6">
+                <footer class="custom-footer" id="footer">
+                    <div class="custom-container">
+                        <div class="custom-row">
+                            <div class="custom-col">
                                 <h4>Company</h4>
                                 <ul>
                                     <li><a href="#">About Us</a></li>
@@ -946,7 +585,7 @@ include("functions/functions.php");
                                     <li><a href="#">Affiliate Program</a></li>
                                 </ul>
                             </div>
-                            <div class="col-md-3 col-sm-6">
+                            <div class="custom-col">
                                 <h4>Get Help</h4>
                                 <ul>
                                     <li><a href="#">FAQ</a></li>
@@ -956,7 +595,7 @@ include("functions/functions.php");
                                     <li><a href="#">Payment Options</a></li>
                                 </ul>
                             </div>
-                            <div class="col-md-3 col-sm-6">
+                            <div class="custom-col">
                                 <h4>Online Shop</h4>
                                 <ul>
                                     <li><a href="#">Saloon Products</a></li>
@@ -965,21 +604,20 @@ include("functions/functions.php");
                                     <li><a href="#">Others</a></li>
                                 </ul>
                             </div>
-                            <div class="col-md-3 col-sm-6">
+                            <div class="custom-col">
                                 <h4>Follow Us</h4>
-                                <div class="social-links">
-                    <a href="#"><i class="fab fa-facebook-f fa-2x" style="color: #3b5998;"></i></a>
-                    <a href="#"><i class="fab fa-twitter fa-2x" style="color: #0084b4;"></i></a>
-                    <a href="#"><i class="fab fa-instagram fa-2x" style="color:   #E1306C;"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in fa-2x" style="color:  #0077B5 ;"></i></a>
-                </div>
+                                <div class="custom-social-links">
+                                    <a href="#"><i class="fab fa-facebook-f fa-2x" style="color: #3b5998;"></i></a>
+                                    <a href="#"><i class="fab fa-twitter fa-2x" style="color: #0084b4;"></i></a>
+                                    <a href="#"><i class="fab fa-instagram fa-2x" style="color: #E1306C;"></i></a>
+                                    <a href="#"><i class="fab fa-linkedin-in fa-2x" style="color: #0077B5;"></i></a>
+                                </div>
                             </div>
                         </div>
                         <hr>
-                        <p class="copyright">Copyright &copy; <span>2024</span> | All rights reserved to DBS Store.</p>
+                        <p class="custom-copyright">Copyright &copy; <span>2024</span> | All rights reserved to DBS Store.</p>
                     </div>
                 </footer>
-
 
                 <!-- footer section ends -->
 
@@ -997,6 +635,7 @@ include("functions/functions.php");
     <!-- custom js file link  -->
     <script src="main/js.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
     <script>
         var slideIndex = 1;
         showSlides(slideIndex);

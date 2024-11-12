@@ -2,21 +2,6 @@
 <?php
 
 $db = mysqli_connect("localhost", "root", "", "e_com");
-//for getting user ip start
-function getUserIp()
-{
-	switch (true) {
-		case (!empty($_SERVER['HTTP_X_REAL_IP'])):
-			return $_SERVER['HTTP_X_REAL_IP'];
-		case (!empty($_SERVER['HTTP_CLIENT_IP'])):
-			return $_SERVER['HTTP_CLIENT_IP'];
-		case (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])):
-			return $_SERVER['HTTP_X_FORWARDED_FOR'];
-		default:
-			return $_SERVER['REMOTE_ADDR'];
-	}
-}
-
 
 function addCart()
 {
@@ -77,6 +62,7 @@ function totalPrice()
 
 //total price End
 //for getting user ip start
+
 function getPro()
 {
 	global $db;
@@ -239,6 +225,20 @@ function getCatPro()
       		</div>
       		</div>";
 		}
+	}
+}
+
+function getUserIp()
+{
+	switch (true) {
+		case (!empty($_SERVER['HTTP_X_REAL_IP'])):
+			return $_SERVER['HTTP_X_REAL_IP'];
+		case (!empty($_SERVER['HTTP_CLIENT_IP'])):
+			return $_SERVER['HTTP_CLIENT_IP'];
+		case (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])):
+			return $_SERVER['HTTP_X_FORWARDED_FOR'];
+		default:
+			return $_SERVER['REMOTE_ADDR'];
 	}
 }
 

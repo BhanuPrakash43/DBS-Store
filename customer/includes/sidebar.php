@@ -14,13 +14,10 @@
         	echo "<center>
 			<img src='customer_images/$customer_image' class='img-responsive'>
 		</center>
-		<br>
-		<h3 align='center' class='panel-title'>Name: $customer_name</h3></center>";
+		<h3 align='center' class='panel-title'> $customer_name</h3>";
         }
 
         ?>
-
-		
 
 	</div>
 	<div class="panel-bdy">
@@ -28,9 +25,6 @@
 			<li class="abc">
 				<a href="my_account.php?my_order"><i class="fa fa-list-al">  My Order</a>
 			</li >
-			<li >
-				<a href="my_account.php?pay_offline"><i class="fa fa-money"></i> Pay Offline</a>
-			</li>
 			
 			<li>
 				<a href="my_account.php?edit_act"><i class="fa fa-pencil-square"></i> Edit Account </a>
@@ -43,7 +37,7 @@
 				<a href="my_account.php?delete_ac"><i class="fa fa-trash"></i> Delete Account</a>
 			</li>
 			<li>
-				<a href="my_account.php?pay_offline"><i class="fa fa-user-plus"></i> Logout</a>
+				<a href="../logout.php"><i class="fa fa-user-plus"></i> Logout</a>
 			</li>
 		</ul>
 		

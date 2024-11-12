@@ -1,16 +1,17 @@
 
 <?php
 
-$db=mysqli_connect("localhost","root","","e_com");
-function getPro(){
+$db = mysqli_connect("localhost", "root", "", "e_com");
+function getPro()
+{
 	global $db;
-	$get_product="select * from products order by 1 DESC LIMIT 0,6";
-	$run_products=mysqli_query($db,$get_product);
-	while ($row_product=mysqli_fetch_array($run_products)) {
-		$pro_id=$row_product['product_id'];
-		$pro_title=$row_product['product_title'];
-		$pro_price=$row_product['product_price'];
-		$pro_img1=$row_product['product_img1'];
+	$get_product = "select * from products order by 1 DESC LIMIT 0,6";
+	$run_products = mysqli_query($db, $get_product);
+	while ($row_product = mysqli_fetch_array($run_products)) {
+		$pro_id = $row_product['product_id'];
+		$pro_title = $row_product['product_title'];
+		$pro_price = $row_product['product_price'];
+		$pro_img1 = $row_product['product_img1'];
 
 		echo "<div class='col-md-4 col-sm-6 single'>
 		<div class='product'>
@@ -25,16 +26,10 @@ function getPro(){
 		<a href='details.php?pro_id=$pro_id' class='btn btn-primary'><i class='fa fa-shopping-cart'></i>Add to Cart</a>
 		 </p>
 
-		
-	
         </div>
         </div>";
-
 	}
 }
 
-
-
-
-  ?>
+?>
  

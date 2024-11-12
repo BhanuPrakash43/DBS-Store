@@ -58,7 +58,7 @@ if (!isset($_SESSION['admin_email'])) {
           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
 
           <!-- custom css file link  -->
-          <link rel="stylesheet" href="css/style.css">
+          <link rel="stylesheet" href="css/styles.css">
 
      <body>
 
@@ -70,7 +70,6 @@ if (!isset($_SESSION['admin_email'])) {
                          if (isset($_GET['dashboard'])) {
                               include 'dashboard.php';
                          }
-
 
                          if (isset($_GET['insert_product'])) {
                               include 'insert_product.php';
@@ -132,12 +131,7 @@ if (!isset($_SESSION['admin_email'])) {
                          if (isset($_GET['order_delete'])) {
                               include 'order_delete.php';
                          }
-                         if (isset($_GET['view_payments'])) {
-                              include 'view_payments.php';
-                         }
-                         if (isset($_GET['payment_delete'])) {
-                              include 'payment_delete.php';
-                         }
+
                          if (isset($_GET['insert_user'])) {
                               include 'insert_user.php';
                          }
@@ -150,80 +144,12 @@ if (!isset($_SESSION['admin_email'])) {
                          if (isset($_GET['user_profile'])) {
                               include 'user_profile.php';
                          }
-                         if (isset($_GET['insert_box'])) {
-                              include 'insert_box.php';
-                         }
-                         if (isset($_GET['view_box'])) {
-                              include 'view_box.php';
-                         }
-                         if (isset($_GET['delete_box'])) {
-                              include 'delete_box.php';
-                         }
-                         if (isset($_GET['edit_box'])) {
-                              include 'edit_box.php';
-                         }
-
-
-
-
-
-
-
-
 
                          ?>
                     </div>
                </div>
           </div>
 
-
-
-
-
-
-
-
-          <!-- jquery cdn link  -->
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-          <!-- owl carousel js file cdn link  -->
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-
-          <!-- custom js file link  -->
-          <script src="js/main.js"></script>
-          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-          <script>
-               var slideIndex = 1;
-               showSlides(slideIndex);
-
-               function plusSlides(n) {
-                    showSlides(slideIndex += n);
-               }
-
-               function currentSlide(n) {
-                    showSlides(slideIndex = n);
-               }
-
-               function showSlides(n) {
-                    var i;
-                    var slides = document.getElementsByClassName("mySlides");
-                    var dots = document.getElementsByClassName("dot");
-                    if (n > slides.length) {
-                         slideIndex = 1
-                    }
-                    if (n < 1) {
-                         slideIndex = slides.length
-                    }
-                    for (i = 0; i < slides.length; i++) {
-                         slides[i].style.display = "none";
-                    }
-                    for (i = 0; i < dots.length; i++) {
-                         dots[i].className = dots[i].className.replace(" active", "");
-                    }
-                    slides[slideIndex - 1].style.display = "block";
-                    dots[slideIndex - 1].className += " active";
-               }
-          </script>
      </body>
 
      </head>

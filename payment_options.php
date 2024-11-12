@@ -13,9 +13,8 @@
 	</p>
 	<center>
 		<p class="lead">
-
 			<img src="customer/customer_images/pay.png" width="500" height="270" class="img-responsive"><br>
-			<a href="customer/my_account.php?pay_offline"><span>Pay via UPI</span></a>
+			<a href=""><span>Pay via UPI</span></a>
 		</p>
 	</center>
 

@@ -32,140 +32,43 @@ include("functions/functions.php");
   <!-- header section starts  -->
 
   <header>
-
-    <div class="header-1">
-
-      <a href="index.php" class="logo"> <img src="website/all/DBS-Logo.png" alt="Logo image" class="hidden-xs"> </a>
-      <div class="col-md-6 offer">
-        <a href="#" class="btn btn-sucess btn-sm">
-          <?php
-
-          if (!isset($_SESSION['customer_email'])) {
-            echo "Welcome Guest";
-          } else {
-            echo "Welcome: " . $_SESSION['customer_email'] . "";
-          }
-
-
-          ?>
-        </a>
-        <a id="pr" href="#"> Shopping Cart Total Price: INR <?php totalPrice(); ?>, Total Items <?php item(); ?></a>
-      </div>
-
-    </div>
-
-    <div class="header-2">
-      <nav class="navbar">
-        <ul>
-
-          <div>
-            <li><a href="index.php">HOME</a></li>
-            <li><a href="trimer.php">SHOP</a></li>
-            <li><a class="active" href="contactus.php">CONTACT</a></li>
-          </div>
-
-          <div class="col-md-6">
-            <ul class="menu">
-              <li>
-                <a href="cart.php" class="">
-                  <i class="fa fa-shopping-cart"></i>
-                  <span><?php item(); ?> items in cart</span>
-                </a>
-              </li>
-
-              <li>
-                <a href="customer_registration.php"><i class="fa fa-user-plus"></i>Register</a>
-              </li>
-              <li>
-                <?php
-
-                if (!isset($_SESSION['customer_email'])) {
-                  echo "<a href='checkout.php'>My Account</a>";
-                } else {
-
-                  echo "<a href='customer/my_account.php?my_order'>My Account</a>";
-                }
-
-                ?></li>
-
-              <li>
-                <a href="cart.php"><i class="fa fa-shopping-cart"></i>Goto Cart</a>
-              </li>
-
-              <li>
-                <?php
-
-                if (!isset($_SESSION['customer_email'])) {
-                  echo "<a href='checkout.php'>Login</a>";
-                } else {
-
-                  echo "<a href='logout.php'>Logout</a>";
-                }
-
-                ?></li>
-            </ul>
-          </div>
-        </ul>
-
-
-
-      </nav>
-    </div>
+    <?php
+    include("includes/header.php")
+    ?>
   </header>
 
   <!-- header section End  -->
 
-  <section class="content" id="content">
-    <div class="container">
-      <div class="col-md-12">
-        <ul class="breadcrumb">
-
-          <li><span>Contact Us</span></li>
-
-
-        </ul>
-
-      </div>
+  <div class="contact-us">
+    <div class="box-header">
+      <h2>Contact Us</h2>
+      <p>If you have any questions, please feel free to contact us, our customer service center is working for you 24/7.</p>
     </div>
-  </section>
-
-  <div class="c-9">
-    <div class="rx">
-      <div class="box-header">
-        <center>
-          <h2>Contact to Us</h2>
-          <p>If you have any questions, please feel free to contact us, our customer service center is working for you 24/7.</p>
-        </center>
+    <form action="contactus.php" method="post">
+      <div class="group">
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name" required class="form-control" placeholder="Enter your full name">
       </div>
-      <div>
-        <form action="contactus.php" method="post">
-          <div class="roup">
-            <label>Name</label>
-            <input type="text" name="name" required="" class="form-control">
-          </div>
-          <div class="roup">
-            <label>Email</label>
-            <input type="text" name="email" class="form-control" required="">
-
-          </div>
-          <div class="roup">
-            <label>Subject</label>
-            <input type="text" name="submit" class="form-control" required="">
-          </div>
-          <div class="roup">
-            <label>Massage</label>
-            <textarea class="form-control" name="massage"></textarea>
-          </div>
-          <div class="text-center">
-            <button type="submit" name="submit" class="btn btn-primary">
-
-              <i class="fa fa-user-md"></i> Send message
-            </button>
-          </div>
-        </form>
+      <div class="group">
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email" class="form-control" required placeholder="Enter your email address">
       </div>
+      <div class="group">
+        <label for="subject">Subject:</label>
+        <input type="text" name="subject" id="subject" class="form-control" required placeholder="Enter the subject">
+      </div>
+      <div class="group">
+        <label for="message">Message:</label>
+        <textarea class="form-control" name="message" id="message" placeholder="Write your message here..." required></textarea>
+      </div>
+    </form>
+    <div class="register-button">
+      <button type="submit" name="submit">
+        <i class="fa fa-user-md"></i> Send Message
+      </button>
     </div>
   </div>
+
 
 
   <!-- footer section starts  -->

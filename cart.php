@@ -30,99 +30,13 @@ include("functions/functions.php");
   <!-- header section starts  -->
 
   <header>
-
-    <div class="header-1">
-
-    <a href="index.php" class="logo"> <img src="website/all/DBS-Logo.png" alt="Logo image" class="hidden-xs"> </a>
-    <div class="col-md-6 offer">
-        <a href="#" class="btn btn-sucess btn-sm">
-          <?php
-
-          if (!isset($_SESSION['customer_email'])) {
-            echo "Welcome Guest";
-          } else {
-            echo "Welcome: " . $_SESSION['customer_email'] . "";
-          }
-
-          ?>
-        </a>
-        <a id="pr" href="#"> Shopping Cart Total Price: INR <?php totalPrice(); ?>, Total Items <?php item(); ?></a>
-      </div>
-
-    </div>
-
-    <div class="header-2">
-      <nav class="navbar">
-        <ul>
-
-          <div>
-          <li><a href="index.php">HOME</a></li>
-          <li><a href="trimer.php">SHOP</a></li>
-          <li><a href="contactus.php">CONTACT</a></li>
-          </div>
-
-          <div class="col-md-6">
-            <ul class="menu">
-              <li>
-                <a href="cart.php" class="">
-                  <i class="fa fa-shopping-cart"></i>
-                  <span><?php item(); ?> items in cart</span>
-                </a>
-              </li>
-
-
-              <li>
-                <a href="customer_registration.php"><i class="fa fa-user-plus"></i>Register</a>
-              </li>
-              <li>
-                <?php
-
-                if (!isset($_SESSION['customer_email'])) {
-                  echo "<a href='checkout.php'>My Account</a>";
-                } else {
-
-                  echo "<a href='customer/my_account.php?my_order'>My Account</a>";
-                }
-
-                ?></li>
-
-              <li>
-                <a class="active" href="cart.php"><i class="fa fa-shopping-cart"></i>Goto Cart</a>
-              </li>
-
-              <li>
-                <?php
-
-                if (!isset($_SESSION['customer_email'])) {
-                  echo "<a href='checkout.php'>Login</a>";
-                } else {
-
-                  echo "<a href='logout.php'>Logout</a>";
-                }
-
-                ?></li>
-            </ul>
-          </div>
-        </ul>
-      </nav>
-    </div>
+    <?php
+    include("includes/header.php")
+    ?>
   </header>
-  <section class="content" id="content">
-    <div class="container">
-      <div class="col-md-12">
-        <ul class="breadcrumb">
 
-          <li><span>Cart</span></li>
-
-
-        </ul>
-
-      </div>
-    </div>
-  </section>
-
-  <div class="col-md-9" id="cart">
-    <div class="box">
+  <div class="cartPage" id="cart">
+    <div class="cartBox">
       <form action="cart.php" method="post" enctype="multipart-form-data">
         <h1>Shopping Cart</h1>
         <?php
@@ -132,7 +46,6 @@ include("functions/functions.php");
         $count = mysqli_num_rows($run_cart);
 
         ?>
-        <p class="text-muted">Currently you have <?php echo $count ?> items in your cart</p>
         <div class="table-respon"></div>
         <table class="table">
           <thead>
@@ -164,12 +77,12 @@ include("functions/functions.php");
             ?>
                 <tr>
                   <td><img src="admin_area/product_images/<?php echo $p_img1 ?>"></td>
-                  <td><?php echo $p_title ?></td>
+                  <td> <?php echo $p_title ?></td>
                   <td><?php echo $pro_qty ?></td>
-                  <td>INR <?php echo $p_price ?></td>
+                  <td><i class="fa fa-inr"></i> <?php echo $p_price ?></td>
                   <td><?php echo $pro_size ?></td>
                   <td><input type="checkbox" name="remove[]" value="<?php echo $pro_id ?>"></td>
-                  <td>INR <?php echo $sub_total ?></td>
+                  <td><i class="fa fa-inr"></i> <?php echo $sub_total ?></td>
                 </tr>
             <?php }
             } ?>
@@ -180,7 +93,7 @@ include("functions/functions.php");
             <h4>Total Price</h4>
           </div>
           <div class="pull-right">
-            <h4>INR <?php echo $total; ?></h4>
+            <h4><i class="fa fa-inr"></i> <?php echo $total; ?></h4>
           </div>
         </div>
 
@@ -221,135 +134,13 @@ include("functions/functions.php");
     ?>
 
   </div>
-  <div class="col-m-3">
-    <div class="box" id="order-summary">
-      <div class="box-header">
-        <h3>Order Summary</h3>
-      </div>
-      <p class="text-muted">
-        Shipping and additional costs are calculated based on the values you have entered
-      </p>
-      <div class="table-responsive">
-        <table class="table">
-          <tr>
-            <td>Order Sub Total</td>
-            <th>INR <?php echo $total ?></th>
-          </tr>
-          <tr>
-            <td>Shipping and handling</td>
-            <td>INR 0</td>
-          <tr>
-            <td>Tax</td>
-            <td>INR 0</td>
-          </tr>
-          <tr class="Total">
-            <td>Total</td>
-            <th>INR <?php echo $total ?></th>
 
-          </tr>
-          </tr>
-        </table>
-      </div>
-    </div>
-  </div>
-  <div id="row same-height-row">
-    <div class="col-md-3 col-sm-6">
-      <div class="box same-height headlin">
-        <h3 class="text-center">You also like these products</h3>
-      </div>
-    </div>
-    <div class="d-3">
-      <div class="product same-height">
-        <a href="">
-          <img src="website/all/lotion.svg" class="img-responsive">
-        </a>
-        <div class="tet">
-          <h3><a href="details.php">Nivea Lotion for men</a></h3>
-          <p class="price"><i class="fa fa-inr"></i>199</p>
-        </div>
-      </div>
-    </div>
-    <div class="d-3">
-      <div class="product same-height">
-        <a href="">
-          <img src="website/all/cre.svg" class="img-responsive">
-        </a>
-        <div class="tet">
-          <h3><a href="details.php">Shaving Cream</a></h3>
-          <p class="price"><i class="fa fa-inr"></i>99</p>
-        </div>
-      </div>
-    </div>
-    <div class="d-3">
-      <div class="product same-height">
-        <a href="">
-          <img src="website/all/comb.svg" class="img-responsive">
-        </a>
-        <div class="tet">
-          <h3><a href="details.php">Comb</a></h3>
-          <p class="price"><i class="fa fa-inr"></i>16</p>
-        </div>
-      </div>
-    </div>
-    <div class="d-3">
-      <div class="product same-height">
-        <a href="">
-          <img src="website/all/drayer.svg" class="img-responsive">
-        </a>
-        <div class="tet">
-          <h3><a href="details.php">Hair Dryer</a></h3>
-          <p class="price"><i class="fa fa-inr"></i>340</p>
-        </div>
-      </div>
-    </div>
-    <div class="d-3">
-      <div class="product same-height">
-        <a href="">
-          <img src="website/all/scissor.svg" class="img-responsive">
-        </a>
-        <div class="tet">
-          <h3><a href="details.php">Indian Scissor</a></h3>
-          <p class="price"><i class="fa fa-inr"></i>70</p>
-        </div>
-      </div>
-    </div>
-    <div class="d-3">
-      <div class="product same-height">
-        <a href="">
-          <img src="website/all/color.svg" class="img-responsive">
-        </a>
-        <div class="tet">
-          <h3><a href="details.php">Hair Color</a></h3>
-          <p class="price"><i class="fa fa-inr"></i>76</p>
-        </div>
-      </div>
-    </div>
-    <div class="d-3">
-      <div class="product same-height">
-        <a href="">
-          <img src="website/all/blad.svg" class="img-responsive">
-        </a>
-        <div class="tet">
-          <h3><a href="details.php">Blade</a></h3>
-          <p class="price"><i class="fa fa-inr"></i>85</p>
-        </div>
-      </div>
-    </div>
-    <div class="d-3">
-      <div class="product same-height">
-        <a href="">
-          <img src="website/all/napkin.svg" class="img-responsive">
-        </a>
-        <div class="tet">
-          <h3><a href="details.php">Napkin</a></h3>
-          <p class="price"><i class="fa fa-inr"></i>20</p>
-        </div>
-      </div>
-    </div>
-  </div>
 
   <!-- footer section starts  -->
   <?php
   include("includes/footer.php");
   ?>
   <!-- footer section   -->
+
+</body>
+</html>

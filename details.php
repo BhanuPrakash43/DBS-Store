@@ -39,7 +39,6 @@ if (isset($_GET['pro_id'])) {
 }
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -50,184 +49,241 @@ if (isset($_GET['pro_id'])) {
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-  <!-- owl carousel css file cdn link  -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-
-  <!-- font awesome cdn link  -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
 
-  <!-- custom css file link  -->
   <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* Container for the product details page */
+    .product-container {
+      width: 90%;
+      margin: auto;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      gap: 20px;
+      margin-top: 30px;
+      padding: 20px;
+    }
+
+    /* Image Section Styling */
+    .image-section {
+      flex: 1;
+      max-width: 400px;
+      height: fit-content;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .image-slider {
+      position: relative;
+      width: 100%;
+      height: 350px;
+      overflow: hidden;
+    }
+
+    .mySlides {
+      display: none;
+      text-align: center;
+    }
+
+    .mySlides img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    button.prev,
+    button.next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      border-radius: 50%;
+      font-size: 20px;
+    }
+
+    button.prev {
+      left: 10px;
+    }
+
+    button.next {
+      right: 10px;
+    }
+
+    /* Product Details Section */
+    .details-section {
+      flex: 1.5;
+      max-width: 600px;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .details-section h1 {
+      font-size: 28px;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+    .details-section p {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    .form-group label {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      margin-top: 5px;
+    }
+
+    .priceBtn {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .priceLabel {
+      font-size: 2rem;
+    }
+
+    .price {
+      font-size: 24px;
+      font-weight: bold;
+      color: #007bff;
+      margin: 20px 0;
+    }
+
+    .btn-prim {
+      padding: 12px 20px;
+      background-color: #007bff;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      margin-top: 1rem;
+    }
+
+    .btn-prim:hover {
+      background-color: #0056b3;
+    }
+
+    /* Responsive Design for Smaller Screens */
+    @media (max-width: 768px) {
+      .product-container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .image-section,
+      .details-section {
+        max-width: 100%;
+      }
+    }
+  </style>
 
 </head>
 
 <body>
 
-  <!-- header section starts  -->
-
   <header>
-
-    <div class="header-1">
-
-      <a href="index.php" class="logo"> <img src="website/all/DBS-Logo.png" alt="Logo image" class="hidden-xs"> </a>
-      <div class="col-md-6 offer">
-        <a href="#" class="btn btn-sucess btn-sm">
-          <?php
-
-          if (!isset($_SESSION['customer_email'])) {
-            echo "Welcome Guest";
-          } else {
-            echo "Welcome: " . $_SESSION['customer_email'] . "";
-          }
-
-          ?>
-        </a>
-        <a id="pr" href="#"> Shopping Cart Total Price: ₹ <?php totalPrice(); ?>, Total Items <?php item(); ?></a>
-      </div>
-
-    </div>
-
-    <div class="header-2">
-      <nav class="navbar">
-        <ul>
-
-          <div>
-            <li><a href="index.php">HOME</a></li>
-            <li><a class="active" href="trimer.php">SHOP</a></li>
-            <li><a href="contactus.php">CONTACT</a></li>
-          </div>
-
-          <div class="col-md-6">
-            <ul class="menu">
-              <li>
-                <a href="cart.php" class="">
-                  <i class="fa fa-shopping-cart"></i>
-                  <span><?php item(); ?> items in cart</span>
-                </a>
-              </li>
-
-              <li>
-                <a href="customer_registration.php"><i class="fa fa-user-plus"></i>Register</a>
-              </li>
-              <li>
-                <a href="customer/my_account.php"><i class="fa fa-user-circle"></i>My Account</a>
-              </li>
-
-              <li>
-                <a href="cart.php"><i class="fa fa-shopping-cart"></i>Goto Cart</a>
-              </li>
-
-              <li>
-                <?php
-
-                if (!isset($_SESSION['customer_email'])) {
-                  echo "<a href='checkout.php'>Login</a>";
-                } else {
-
-                  echo "<a href='logout.php'>Logout</a>";
-                }
-
-                ?></li>
-            </ul>
-          </div>
-        </ul>
-
-      </nav>
-    </div>
+    <?php include("includes/header.php") ?>
   </header>
-  <!-- header section End  -->
 
-  <section class="content" id="content">
+  <section class="content">
     <div class="container">
       <div class="col-md-12">
         <ul class="breadcrumb">
-
           <li><span>Product Details</span></li>
-
         </ul>
-
       </div>
     </div>
   </section>
 
-
-  <div class="content1" id="content1">
-    <div class="container1">
-      <div class="col-md-3">
-        <?php
-        include("includes/sidebar.php");
-        ?>
-
+  <div class="product-container">
+    <!-- Product Image Section -->
+    <div class="image-section">
+      <div class="image-slider">
+        <div class="mySlides fade">
+          <img src="admin_area/product_images/<?php echo $p_img1 ?>" alt="Product Image 1">
+        </div>
+        <div class="mySlides fade">
+          <img src="admin_area/product_images/<?php echo $p_img2 ?>" alt="Product Image 2">
+        </div>
+        <div class="mySlides fade">
+          <img src="admin_area/product_images/<?php echo $p_img3 ?>" alt="Product Image 3">
+        </div>
+        <button class="prev" onclick="plusSlides(-1)">&#10094;</button>
+        <button class="next" onclick="plusSlides(1)">&#10095;</button>
       </div>
     </div>
+
+    <!-- Product Details Section -->
+    <div class="details-section">
+      <h1><?php echo $p_title ?></h1>
+
+      <?php addCart(); ?>
+      
+      <p><strong>Category:</strong> <?php echo $p_cat_title ?></p>
+      <p><strong>Description:</strong> <?php echo $p_desc ?></p>
+      <form action="details.php?add_cart=<?php echo $pro_id ?>" method="post" class="form-horizontal">
+        <div class="form-group">
+          <label>Product Quantity</label>
+          <select name="product_qty" class="form-control">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Choose Color</label>
+          <select name="product_size" class="form-control">
+            <option>Red & Blue</option>
+            <option>Khaki</option>
+            <option>White</option>
+            <option>Gray</option>
+            <option>Blue</option>
+          </select>
+        </div>
+
+        <div class="priceBtn">
+          <p class="price"><span class="priceLabel">Price:</span> <i class="fa fa-inr"></i> <?php echo $p_price; ?></p>
+          <button class="btn-prim" type="submit"><i class="fa fa-shopping-cart"> Add to Cart</i></button>
+        </div>
+      </form>
+    </div>
   </div>
-  <div class="slides">
 
-    <div class="mySlides fade">
-      <div class="numbertt"></div>
-      <img src="admin_area/product_images/<?php echo $p_img1 ?>" width="500" height="500">
 
-    </div>
+  <!-- Footer part  -->
 
-    <div class="mySlides fade">
-      <div class="numbertt"></div>
-      <img src="admin_area/product_images/<?php echo $p_img2 ?>" width="500" height="500">
-
-    </div>
-
-    <div class="mySlides fade">
-      <div class="numbertt"></div>
-      <img src="admin_area/product_images/<?php echo $p_img3 ?>" width="500" height="500">
-
-    </div>
-
-    <a class="prv" onclick="plusSlides(-1)">&#10094;</a>
-    <a class="net" onclick="plusSlides(1)">&#10095;</a>
-
+  <div>
+    <?php include("includes/footer.php"); ?>
   </div>
-
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-  <!-- owl carousel js file cdn link  -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-
-  <!-- custom js file link  -->
   <script src="js/main.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <!-- <script>
-    var slideIndex = 1;
-    showSlides(slideIndex);
 
-    function plusSlides(n) {
-      showSlides(slideIndex += n);
-    }
-
-    function currentSlide(n) {
-      showSlides(slideIndex = n);
-    }
-
-    function showSlides(n) {
-      var i;
-      var slides = document.getElementsByClassName("mySlides");
-      var dots = document.getElementsByClassName("dot");
-      if (n > slides.length) {
-        slideIndex = 1
-      }
-      if (n < 1) {
-        slideIndex = slides.length
-      }
-      for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-      }
-      for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
-      }
-      slides[slideIndex - 1].style.display = "block";
-      dots[slideIndex - 1].className += " active";
-    }
-  </script> -->
   <script>
     var slideIndex = 1;
     showSlides(slideIndex);
@@ -236,107 +292,16 @@ if (isset($_GET['pro_id'])) {
       showSlides(slideIndex += n);
     }
 
-    function currentSlide(n) {
-      showSlides(slideIndex = n);
-    }
-
     function showSlides(n) {
-      var i;
       var slides = document.getElementsByClassName("mySlides");
-      var dots = document.getElementsByClassName("dot");
-
-      // Ensure slides are available
-      if (slides.length > 0) {
-        if (n > slides.length) {
-          slideIndex = 1;
-        }
-        if (n < 1) {
-          slideIndex = slides.length;
-        }
-
-        // Hide all slides
-        for (i = 0; i < slides.length; i++) {
-          slides[i].style.display = "none";
-        }
-
-        // Remove 'active' class from all dots
-        for (i = 0; i < dots.length; i++) {
-          dots[i].className = dots[i].className.replace(" active", "");
-        }
-
-        // Show the current slide and activate the corresponding dot
-        slides[slideIndex - 1].style.display = "block";
-        if (dots.length > 0) {
-          dots[slideIndex - 1].className += " active";
-        }
-      } else {
-        console.warn("Slides not found.");
+      if (n > slides.length) slideIndex = 1;
+      if (n < 1) slideIndex = slides.length;
+      for (var i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
       }
+      slides[slideIndex - 1].style.display = "block";
     }
   </script>
-
-  <div class="co-md-6">
-    <div class="bx">
-      <h1 class="text-center"><?php echo $p_title ?></h1>
-      <?php addCart(); ?>
-
-      <form action="details.php?add_cart=<?php echo $pro_id ?>" method="post" class="form-horizontal">
-        <div class="form-group">
-          <label class="col-md-5 control-label">Product Quantity</label>
-          <div class="col-md-7">
-            <select name="product_qty" class="form-control">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label class="col-md-5 control-label">Chose Color</label>
-          <div class="col-md-7">
-            <select name="product_size" class="form-control">
-              <option>RED & Blue</option>
-              <option>khaki</option>
-              <option>white</option>
-              <option>gray</option>
-              <option>blue</option>
-            </select>
-          </div>
-        </div>
-        <p class="price"><i class="fa fa-inr"></i><?php echo $p_price; ?></p>
-        <p class="text-center buttons">
-          <button class="btn-prim" type="submit"><i class=" fa fa-shopping-cart">Add to cart</i></button>
-        </p>
-      </form>
-    </div>
-    <div class="col-xs-4">
-      <a href="#" class="thumb">
-        <img src="" class="img-responsive">
-      </a>
-    </div>
-    <div class="col-xs-4">
-      <a href="#" class="thumb">
-        <img src="" class="img-responsive">
-      </a>
-    </div>
-    <div class="col-xs-4">
-      <a href="#" class="thumb">
-        <img src="" class="img-responsive">
-      </a>
-    </div>
-  </div>
-
-
-  <div id="row same-height-row">
-
-    <?php
-    include("includes/footer.php");
-    ?>
-
-  </div>
 
 </body>
 

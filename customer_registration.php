@@ -33,160 +33,56 @@ include("functions/functions.php");
   <!-- header section starts  -->
 
   <header>
-
-    <div class="header-1">
-      <a href="index.php" class="logo"> <img src="website/all/DBS-Logo.png" alt="Logo image" class="hidden-xs"> </a>
-      <div class="col-md-6 offer">
-        <a href="#" class="btn btn-sucess btn-sm">
-          <?php
-
-          if (!isset($_SESSION['customer_email'])) {
-            echo "Welcome Guest";
-          } else {
-            echo "Welcome: " . $_SESSION['customer_email'] . "";
-          }
-
-
-          ?>
-        </a>
-        <a id="pr" href="#"> Shopping Cart Total Price: INR <?php totalPrice(); ?>, Total Items <?php item(); ?></a>
-      </div>
-
-    </div>
-
-    <div class="header-2">
-      <nav class="navbar">
-        <ul>
-          <div>
-            <li><a href="index.php">HOME</a></li>
-            <li><a href="trimer.php">SHOP</a></li>
-            <li><a href="contactus.php">CONTACT</a></li>
-          </div>
-
-          <div class="col-md-6">
-            <ul class="menu">
-              <li>
-                <a href="cart.php" class="">
-                  <i class="fa fa-shopping-cart"></i>
-                  <span><?php item(); ?> items in cart</span>
-                </a>
-              </li>
-
-              <li>
-                <a class="active" href="#customer_registration.php"><i class="fa fa-user-plus"></i>Register</a>
-              </li>
-              <li>
-                <?php
-
-                if (!isset($_SESSION['customer_email'])) {
-                  echo "<a href='checkout.php'>My Account</a>";
-                } else {
-
-                  echo "<a href='customer/my_account.php?my_order'>My Account</a>";
-                }
-
-                ?></li>
-
-              <li>
-                <a href="cart.php"><i class="fa fa-shopping-cart"></i>Goto Cart</a>
-              </li>
-
-              <li>
-                <?php
-
-                if (!isset($_SESSION['customer_email'])) {
-                  echo "<a href='checkout.php'>Login</a>";
-                } else {
-
-                  echo "<a href='logout.php'>Logout</a>";
-                }
-
-                ?>
-
-              </li>
-            </ul>
-          </div>
-        </ul>
-
-      </nav>
-    </div>
+    <?php
+    include("includes/header.php")
+    ?>
   </header>
 
   <!-- header section End  -->
 
-  <section class="content" id="content">
-    <div class="container">
-      <div class="col-md-12">
-        <ul class="breadcrumb">
-
-          <li><span>Customer Registration</span></li>
-
-        </ul>
-
-      </div>
+  <div class="register-container">
+    <div class="register-header">
+      <h2>Register a New Account</h2>
+      <p>Create your account to enjoy all our services</p>
     </div>
-  </section>
-
-  <div class="c-9">
-    <div class="rx">
-      <div class="box-header">
-        <center>
-          <h2>Register A New Account</h2>
-        </center>
+    <form class="register-form" action="customer_registration.php" method="post" enctype="multipart/form-data">
+      <div class="form-group">
+        <label for="name">Customer Name:</label>
+        <input type="text" name="c_name" id="name" required placeholder="Enter your name">
       </div>
-      <div>
-        <form action="customer_registration.php" method="post" enctype="multipart/form-data">
-          <div class="roup">
-            <label>Customer Name</label>
-            <input type="text" name="c_name" required="" class="form-control">
-          </div>
-          <div class="roup">
-            <label>Customer Email</label>
-            <input type="text" name="c_email" class="form-control" required="">
-
-          </div>
-          <div class="roup">
-            <label>Customer Password</label>
-            <input type="password" name="c_password" class="form-control" required="">
-
-          </div>
-          <div class="roup">
-            <label>Country</label>
-            <input type="text" name="c_country" class="form-control" required="">
-
-          </div>
-
-          <div class="roup">
-            <label>City</label>
-            <input type="text" name="c_city" class="form-control" required="">
-
-          </div>
-          <div class="roup">
-            <label>Contact Number</label>
-            <input type="text" name="c_contact" class="form-control" required="">
-
-          </div>
-          <div class="roup">
-            <label>Address</label>
-            <input type="text" name="c_address" class="form-control" required="">
-
-          </div>
-          <div class="roup">
-            <label>Image</label>
-            <input type="file" name="c_image" class="form-control" required="">
-
-          </div>
-          <div class="text-center">
-            <button type="submit" name="submit" class="btn btn-primary">
-
-              <i class="fa fa-user-md"></i> Register
-            </button>
-          </div>
-        </form>
+      <div class="form-group">
+        <label for="email">Customer Email:</label>
+        <input type="email" name="c_email" id="email" required placeholder="Enter your email">
       </div>
-    </div>
+      <div class="form-group">
+        <label for="password">Customer Password:</label>
+        <input type="password" name="c_password" id="password" required placeholder="Enter your password">
+      </div>
+      <div class="form-group">
+        <label for="country">Country:</label>
+        <input type="text" name="c_country" id="country" required placeholder="Enter your country">
+      </div>
+      <div class="form-group">
+        <label for="city">City:</label>
+        <input type="text" name="c_city" id="city" required placeholder="Enter your city">
+      </div>
+      <div class="form-group">
+        <label for="contact">Contact Number:</label>
+        <input type="text" name="c_contact" id="contact" required placeholder="Enter your contact number">
+      </div>
+      <div class="form-group">
+        <label for="address">Address:</label>
+        <input type="text" name="c_address" id="address" required placeholder="Enter your address">
+      </div>
+      <div class="form-group">
+        <label for="image">Profile Image:</label>
+        <input type="file" name="c_image" id="image" required>
+      </div>
+      <div class="register-button">
+        <button type="submit" name="submit"><i class="fa fa-user-plus"></i> Register</button>
+      </div>
+    </form>
   </div>
-
 
   <!-- footer section starts  -->
   <?php
@@ -228,6 +124,5 @@ if (isset($_POST['submit'])) {
     echo "<script>window.open('index.php','_self')</script>";
   }
 }
-
 
 ?>

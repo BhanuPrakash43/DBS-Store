@@ -11,12 +11,6 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
 
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
 --
 -- Database: `e_com`
 --
@@ -44,7 +38,7 @@ CREATE TABLE `admins` (
 --
 
 INSERT INTO `admins` (`admin_id`, `admin_name`, `admin_email`, `admin_pass`, `admin_image`, `admin_contact`, `admin_country`, `admin_job`, `admin_about`) VALUES
-(5, 'Rakesh Kumar', 'rakeshalakh@gmail.com', '12345', 'croppedImage_1531040053949.png', '7015963438', 'india', 'WEB DEVELOPER', 'I AM RAKESH KUMAR');
+(1, 'Bhanu Prakash', 'bhanu@gmail.com', 'password', '', '8989848734', 'india', 'Web Developer', 'I am Bhanu Prakash');
 
 -- --------------------------------------------------------
 
@@ -128,14 +122,6 @@ CREATE TABLE `customers` (
 -- Dumping data for table `customers`
 --
 
-INSERT INTO `customers` (`customer_id`, `customer_name`, `customer_email`, `customer_pass`, `customer_country`, `customer_city`, `customer_contact`, `customer_address`, `customer_image`, `customer_ip`) VALUES
-(23, 'raku', 'raku08@gmail.com', '12345', 'India', 'Bhiwani', '08295401008', 'Vpo- Alakhpura, Teh-Bawani khera', 'Licence.jpg', '::1'),
-(24, 'Rakesh Kumar', 'rakesh@gmail.com', '12345', 'India', 'Bhiwani', '+918295401008', 'Vpo- Alakhpura', 'IMG_20180831_153629.jpg', '::1'),
-(25, 'Rakesh Kumar', 'rakekh@gmail.com', '12345', 'India', 'Bhiwani', '08295401008', 'Vpo- Alakhpura, Teh-Bawani khera', 'PHOTO.jpg', '::1'),
-(26, 'jateen tanwar ', 'jateentanwar@gmail.com', '12345', 'India', 'Bhiwani', '08295401008', 'Vpo- Alakhpura, Teh-Bawani khera', 'Pic-4.jpg', '::1'),
-(27, 'ankita', 'ankita@gmail.com', 'abcd', 'india', 'har', '1234567890', 'sampla', 'th.jpg', '::1'),
-(28, 'Rakesh Kumar', 'rakeshalakh@gmail.com', '12345', 'India', 'Bhiwani', '08295401008', 'Vpo- Alakhpura, Teh-Bawani khera', 'youtube_logo.png', '::1');
-
 -- --------------------------------------------------------
 
 --
@@ -158,17 +144,6 @@ CREATE TABLE `customer_order` (
 -- Dumping data for table `customer_order`
 --
 
-INSERT INTO `customer_order` (`order_id`, `customer_id`, `product_id`, `due_amount`, `invoice_no`, `qty`, `size`, `order_date`, `order_status`) VALUES
-(32, 23, 18, 897, 1732273010, 3, 'RED & Blue', '2021-05-18 15:05:51', 'Complete'),
-(33, 24, 17, 300, 2061043168, 1, 'RED & Blue', '2021-05-19 15:44:00', 'pending'),
-(34, 26, 20, 425, 1601455995, 5, 'RED & Blue', '2021-05-25 16:41:16', 'Complete'),
-(35, 26, 31, 2396, 1601455995, 4, 'RED & Blue', '2021-05-26 05:58:44', 'Complete'),
-(36, 26, 33, 180, 1081656985, 1, 'RED & Blue', '2021-05-26 05:57:25', 'pending'),
-(37, 27, 37, 10120, 675008297, 4, 'white', '2021-05-29 05:55:10', 'pending'),
-(38, 28, 36, 599, 1624474385, 1, 'RED & Blue', '2021-06-19 10:25:24', 'Complete'),
-(39, 28, 23, 349, 535526198, 1, 'RED & Blue', '2021-06-17 23:36:47', 'pending'),
-(40, 28, 24, 432, 535526198, 1, 'RED & Blue', '2021-06-17 23:36:48', 'pending'),
-(41, 28, 38, 1495, 437366899, 1, 'RED & Blue', '2021-06-19 10:24:50', 'pending');
 
 -- --------------------------------------------------------
 
@@ -188,12 +163,6 @@ CREATE TABLE `payments` (
 --
 -- Dumping data for table `payments`
 --
-
-INSERT INTO `payments` (`payment_id`, `invoice_id`, `amount`, `payment_mode`, `ref_no`, `payment_date`) VALUES
-(18, 236385455, 342, 'Paytm', 232323, '2021-05-18'),
-(20, 1601455995, 599, 'google pay', 232323, '2021-05-11'),
-(21, 1601455995, 599, 'Bank transfer', 112121, '2021-05-10'),
-(22, 2098939645, 299, 'Bank transfer', 232323, '2021-06-17');
 
 -- --------------------------------------------------------
 
@@ -223,7 +192,6 @@ INSERT INTO `products` (`product_id`, `p_cat_id`, `cat_id`, `date`, `product_tit
 (21, 3, 5, '2021-05-20 08:35:26', 'Shaving Cream', 'crem.jpg', 'crem.jpg', 'crem.jpg', 299, 'erg', 'new arrival'),
 (22, 14, 5, '2021-05-20 08:37:35', 'Towel', 'Pic-4.jpg', 'Pic-4.jpg', 'Pic-4.jpg', 199, 'best', 'Makhmal'),
 (23, 14, 5, '2021-05-20 08:39:19', 'Hair Drayer', 's-l1600.jpg', 's-l1600.jpg', 's-l1600.jpg', 349, 'best', 'new arrival'),
-(26, 1, 2, '2021-05-21 10:05:09', 'rakesh kumar', 'garnier-Black-Naturalpacket-natural-Black-1.0.png', 'kemi.jpg', 'f6330a00-2dda-4c44-94d4-bfbf641d11a4.35a8aef2cceee4b1f480adc7148ba7a5.jpeg', 544, 'fg', 'new arrival  lllllllllllll'),
 (32, 10, 8, '2021-06-18 00:15:41', 'Stylish Comb', 'comb-11.jpg', 'com.jpg', 'th (1).jpg', 543, '', 'new arrival'),
 (38, 21, 7, '2021-06-18 00:10:01', 'Philips trimmer for men', 'trimer1.jpg', 'trimer2.jpg', 'trimer3.jpg', 1495, '', 're');
 
@@ -428,6 +396,3 @@ ALTER TABLE `slider`
   MODIFY `Id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 COMMIT;
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

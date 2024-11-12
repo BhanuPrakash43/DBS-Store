@@ -1,27 +1,30 @@
-<div class="rx">
-	<div class="box-header">
+<div class="login-container">
+	<div class="login-header">
 		<center>
 			<h2>Login</h2>
-			<p class="lead">Already our customer</p>
+			<p class="login-lead">Already our customer?</p>
 		</center>
 	</div>
-	<form accept="checkout.php" method="post">
-		<div class="roup">
-			<label>Email: </label>
-			<input type="text" class="form-control" name="c_email" required="">
+	<form action="checkout.php" method="post">
+		<div class="form-group">
+			<label for="email">Email:</label>
+			<input type="text" id="email" class="form-control" name="c_email" placeholder="Enter your name" required="">
 		</div>
-		<div class="roup">
-			<label>Password: </label>
-			<input type="password" class="form-control" name="c_password" required="">
+		<div class="form-group">
+			<label for="password">Password:</label>
+			<input type="password" id="password" class="form-control" name="c_password" placeholder="Enter your password" required="">
 		</div>
-		<div class="text-center">
-			<button name="login" value="login" class="btn btn-primary"><i class="fa fa-sign-in"></i>Log In</button>
+		<div class="button-container">
+			<button type="submit" name="login" value="login" class="btn-login"><i class="fa fa-sign-in"></i> Log In</button>
 		</div>
 	</form>
-	<center><a href="customer_registration.php">
-			<h3>New ? Register Now </h3>
-		</a></center>
+	<center>
+		<a href="customer_registration.php" class="register-link">
+			<h3>New? Register Now</h3>
+		</a>
+	</center>
 </div>
+
 
 <?php
 
@@ -46,7 +49,7 @@ if (isset($_POST['login'])) {
 	} else {
 		$_SESSION['customer_email'] = $customer_email;
 		echo "<script>alert('You are logged In')</script>";
-		echo "<script>window.open('checkout.php','_self')</script>";
+		echo "<script>window.open('customer/my_account.php','_self')</script>";
 	}
 }
 

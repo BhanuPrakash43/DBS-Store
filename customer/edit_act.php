@@ -15,46 +15,43 @@ $customer_image = $row_cust['customer_image'];
 
 ?>
 
-<div class="rx">
-	<center>
-		<h1>Edit Your Account</h1>
-	</center>
-	<form action="" method="post">
-		<div class="roup">
-			<label> Name</label>
-			<input type="text" name="c_name" class="trol" value="<?php echo $customer_name; ?>" required="">
+<div class="update-container">
+	<div class="register-header">
+		<h2>Edit Your Account</h2>
+		<p>Update your details to continue enjoying our services</p>
+	</div>
+	<form class="register-form" action="" method="post" enctype="multipart/form-data">
+		<div class="form-group">
+			<label for="name">Customer Name:</label>
+			<input type="text" name="c_name" id="name" required value="<?php echo $customer_name; ?>" placeholder="Enter your name">
 		</div>
-		<div class="roup">
-			<label> Email</label>
-			<input type="email" name="c_email" class="trol" value="<?php echo $customer_email; ?>" required="">
+		<div class="form-group">
+			<label for="email">Customer Email:</label>
+			<input type="email" name="c_email" id="email" required value="<?php echo $customer_email; ?>" placeholder="Enter your email">
 		</div>
-		<div class="roup">
-			<label> Country</label>
-			<input type="text" name="c_country" class="trol" value="<?php echo $customer_country; ?>" required="">
+		<div class="form-group">
+			<label for="country">Country:</label>
+			<input type="text" name="c_country" id="country" required value="<?php echo $customer_country; ?>" placeholder="Enter your country">
 		</div>
-		<div class="roup">
-			<label> City</label>
-			<input type="text" name="c_city" class="trol" value="<?php echo $customer_city; ?>" required="">
+		<div class="form-group">
+			<label for="city">City:</label>
+			<input type="text" name="c_city" id="city" required value="<?php echo $customer_city; ?>" placeholder="Enter your city">
 		</div>
-		<div class="roup">
-			<label>Contact Number</label>
-			<input type="text" name="c_number" class="trol" value="<?php echo $customer_contact; ?>" required="">
+		<div class="form-group">
+			<label for="contact">Contact Number:</label>
+			<input type="text" name="c_contact" id="contact" required value="<?php echo $customer_contact; ?>" placeholder="Enter your contact number">
 		</div>
-
-		<div class="roup">
-			<label> Address</label>
-			<input type="text" name="c_address" class="trol" value="<?php echo $customer_address; ?>" required="">
+		<div class="form-group">
+			<label for="address">Address:</label>
+			<input type="text" name="c_address" id="address" required value="<?php echo $customer_address; ?>" placeholder="Enter your address">
 		</div>
-		<div class="roup">
-			<label>Customer Image</label>
-			<input type="file" name="c_image" class="trol" required="">
-			<img src="customer_images/<?php echo $customer_image; ?>" class="img-responsive" height="70" width="70">
+		<div class="form-group">
+			<label for="image">Profile Image:</label>
+			<input type="file" name="c_image" id="image">
+			<img src="customer_images/<?php echo $customer_image; ?>" alt="Profile Image" height="70" width="70">
 		</div>
-		<div class="text-center">
-
-			<button class="btn btn-primary" name="update" type="submit">
-				Update Now
-			</button>
+		<div class="register-button">
+			<button type="submit" name="update"><i class="fa fa-save"></i> Update Now</button>
 		</div>
 	</form>
 </div>

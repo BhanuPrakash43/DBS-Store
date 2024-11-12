@@ -35,13 +35,11 @@ if (!isset($_SESSION['customer_email'])) {
 
   <body>
 
-    <!-- header section starts  -->
-
     <header>
 
       <div class="header-1">
 
-        <a href="index.php" class="logo"> <img src="website/all/DBS-Logo.png" alt="Logo image" class="hidden-xs"> </a>
+        <a href="index.php" class="logo"> <img src="../website/all/DBS-Logo.png" alt="Logo image" class="hidden-xs"> </a>
 
         <div class="col-md-6 offer">
           <a href="#" class="btn btn-sucess btn-sm">
@@ -56,7 +54,7 @@ if (!isset($_SESSION['customer_email'])) {
 
             ?>
           </a>
-          <a id="pr" href="#"> Shopping Cart Total Price: INR <?php totalPrice(); ?>, Total Items <?php item(); ?></a>
+          <a id="pr" href="#"> Shopping Cart Total Price: <i class="fa fa-inr"></i> <?php totalPrice(); ?>, Total Items <?php item(); ?></a>
         </div>
 
       </div>
@@ -119,7 +117,6 @@ if (!isset($_SESSION['customer_email'])) {
       </div>
     </header>
 
-    <!-- header section End  -->
 
     <section class="content" id="content">
       <div class="container">
@@ -135,54 +132,30 @@ if (!isset($_SESSION['customer_email'])) {
     </section>
     <div class="col-m-9">
 
-      <!-- including my_order.php starts  -->
-
       <?php
       if (isset($_GET['my_order'])) {
         include("my_order.php");
       }
       ?>
 
-      <!-- including my_order.php End  -->
-
-      <!-- including payoffline.php page starts  -->
-      <?php
-
-      if (isset($_GET['pay_offline'])) {
-        include("pay_offline.php");
-      }
-
-      ?>
-
-      <!-- including payoffline.php page End  -->
-      <!-- including Edit_account.php page start  -->
       <?php
       if (isset($_GET['edit_act'])) {
         include("edit_act.php");
       }
       ?>
 
-      <!-- including Edit_account.php page End  -->
-      <!-- including change_pass.php page Start  -->
       <?php
       if (isset($_GET['change_pass'])) {
         include("change_password.php");
       }
       ?>
 
-      <!-- including change_pass.php page End  -->
-      <!-- including delete_pass.php page Start  -->
-
       <?php
       if (isset($_GET['delete_ac'])) {
         include("delete_ac.php");
       }
       ?>
-
-      <!-- including delete_pass.php page End  -->
     </div>
-
-
 
     <div class="content1" id="content1">
       <div class="container1">
@@ -190,19 +163,16 @@ if (!isset($_SESSION['customer_email'])) {
           <?php
           include("includes/sidebar.php");
           ?>
-
         </div>
-
       </div>
     </div>
 
-    <!-- footer section starts  -->
     <?php
     include("includes/footer.php");
     ?>
-    <!-- footer section   -->
 
   <?php } ?>
+
   </body>
 
   </html>

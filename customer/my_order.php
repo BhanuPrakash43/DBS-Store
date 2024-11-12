@@ -44,7 +44,6 @@
 						$order_status = 'Paid';
 					}
 
-
 				?>
 					<tr>
 						<td><?php echo $i ?></td>
@@ -54,9 +53,10 @@
 						<td><?php echo $order_size ?></td>
 						<td><?php echo $order_date ?></td>
 						<td><?php echo $order_status ?></td>
-						<td><a href="confirm.php?order_id=<?php echo $order_id ?>" target="_blank" class="btn btn-primary btn-sm">confirm Now</a></td>
+						<td><button class="btn btn-primary btn-sm">confirm Now</button></td>
 					</tr>
 				<?php } ?>
+
 			</tbody>
 		</table>
 	</div>
