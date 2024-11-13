@@ -117,7 +117,7 @@ if (isset($_POST['submit'])) {
   if ($check_cart > 0) {
     $_SESSION['customer_email'] = $c_email;
     echo "<script>alert('you have been registered successfully')</script>";
-    echo "<script>window.open('checkout.php','_self')</script>";
+    echo "<script>window.open('customer/my_account.php','_self')</script>";
   } else {
     $_SESSION['customer_email'] = $c_email;
     echo "<script>alert('you have been registered successfully')</script>";

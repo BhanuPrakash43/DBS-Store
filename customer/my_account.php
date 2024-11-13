@@ -78,10 +78,16 @@ if (!isset($_SESSION['customer_email'])) {
                   </a>
                 </li>
 
-
-                <li>
+                <!-- <li>
                   <a href="../customer_registration.php"><i class="fa fa-user-plus"></i>Register</a>
-                </li>
+                </li> -->
+
+                <?php
+                if (!isset($_SESSION['customer_email'])) {
+                  echo "<a href='../customer_registration.php'><i class='fa fa-user-plus'></i>Register</a>";
+                }
+                ?>
+
                 <li>
                   <?php
 
@@ -104,7 +110,6 @@ if (!isset($_SESSION['customer_email'])) {
                   if (!isset($_SESSION['customer_email'])) {
                     echo "<a href='checkout.php'>Login</a>";
                   } else {
-
                     echo "<a href='../logout.php'>Logout</a>";
                   }
 

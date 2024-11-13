@@ -23,6 +23,7 @@ function addCart()
 		}
 	}
 }
+
 //items count start
 
 function item()
@@ -61,7 +62,6 @@ function totalPrice()
 
 
 //total price End
-//for getting user ip start
 
 function getPro()
 {
